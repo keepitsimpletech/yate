@@ -1110,10 +1110,13 @@ bool UNLOAD_PLUGIN(bool unloadNow);
 #ifdef DISABLE_UNLOAD
 #define UNLOAD_PLUGIN(arg) static bool _unused_unload(bool arg)
 #else
+// NOTE: Removed the `extern "C"` from UNLOAD_PLUGIN, below,
+//       to allow multiple yate modules into a single dynamic library (dylib, so, dll)
+// TODO: Works on Linux and macOS, test on Windows
 #ifdef _WINDOWS
-#define UNLOAD_PLUGIN(arg) extern "C" __declspec(dllexport) bool _unload(bool arg)
+#define UNLOAD_PLUGIN(arg) __declspec(dllexport) bool _unload(bool arg)
 #else
-#define UNLOAD_PLUGIN(arg) extern "C" bool _unload(bool arg)
+#define UNLOAD_PLUGIN(arg) bool _unload(bool arg)
 #endif
 #endif
 
