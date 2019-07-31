@@ -163,9 +163,9 @@ static NSSearchPathDirectory translateDirectory(MacOSXUtils::DirectoryPath dirPa
 	case MacOSXUtils::AllLibrariesDirectory:
 	    return NSAllLibrariesDirectory;
 	default:
-	    return 0;
+	    return (NSSearchPathDirectory)0;
     }
-    return 0;
+    return (NSSearchPathDirectory)0;
 }
 
 static NSSearchPathDomainMask translateDomain(unsigned int domainMask)
@@ -187,21 +187,21 @@ static NSSearchPathDomainMask translateDomain(unsigned int domainMask)
 
 void MacOSXUtils::applicationSupportPath(String& path, const char* appName)
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSString* app = toNSString(appName);
+    @autoreleasepool {
+        NSString* app = toNSString(appName);
 
-    NSString* pth = [[NSFileManager defaultManager] applicationSupportDirectoryForApp:app];
-    path = fromNSString(pth);
-    [pool release];
+        NSString* pth = [[NSFileManager defaultManager] applicationSupportDirectoryForApp:app];
+        path = fromNSString(pth);
+    }
 }
 
 void MacOSXUtils::getPath(String& path, DirectoryPath dirPath, Domain domain, const char* append, bool createDir)
 {
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    NSSearchPathDirectory dir = translateDirectory(dirPath);
-    NSSearchPathDomainMask domainMask = translateDomain(domain);
+    @autoreleasepool {
+        NSSearchPathDirectory dir = translateDirectory(dirPath);
+        NSSearchPathDomainMask domainMask = translateDomain(domain);
 
-    NSString* pth = [[NSFileManager defaultManager] pathForDirectory:dir inDomain:domainMask createDir:createDir byAppending:toNSString(append)];
-    path = fromNSString(pth);
-    [pool release];
+        NSString* pth = [[NSFileManager defaultManager] pathForDirectory:dir inDomain:domainMask createDir:createDir byAppending:toNSString(append)];
+        path = fromNSString(pth);
+    }
 }
