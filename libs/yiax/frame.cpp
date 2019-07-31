@@ -229,7 +229,7 @@ const TokenDict IAXInfoElement::s_ieData[] = {
 
 void IAXInfoElement::toBuffer(DataBlock& buf)
 {
-    unsigned char d[2] = {m_type,0};
+    unsigned char d[2] = {static_cast<unsigned char>(m_type),0};
     buf.assign(d,sizeof(d));
 }
 
@@ -243,7 +243,7 @@ void IAXInfoElement::toString(String& buf)
  */
 void IAXInfoElementString::toBuffer(DataBlock& buf)
 {
-    unsigned char d[2] = {type(),(unsigned char)m_strData.length()};
+    unsigned char d[2] = {static_cast<unsigned char>(type()),(unsigned char)m_strData.length()};
     buf.assign(d,sizeof(d));
     buf.append(data());
 }
@@ -270,7 +270,7 @@ IAXInfoElementNumeric::IAXInfoElementNumeric(Type type, u_int32_t val, u_int8_t 
 
 void IAXInfoElementNumeric::toBuffer(DataBlock& buf)
 {
-    unsigned char d[6] = {type(),m_length};
+    unsigned char d[6] = {static_cast<unsigned char>(type()),m_length};
 
     switch (m_length) {
 	case 1:
@@ -302,7 +302,7 @@ void IAXInfoElementNumeric::toString(String& buf)
  */
 void IAXInfoElementBinary::toBuffer(DataBlock& buf)
 {
-    unsigned char d[2] = {type(),(unsigned char)m_data.length()};
+    unsigned char d[2] = {static_cast<unsigned char>(type()),(unsigned char)m_data.length()};
     buf.assign(d,sizeof(d));
     buf += m_data;
 }
