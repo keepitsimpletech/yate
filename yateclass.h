@@ -2150,13 +2150,6 @@ public:
 	{ return checkBOM(str) && (str += 3); }
 
     /**
-     * Strip an UTF-8 Byte Order Mark from the start of this string
-     * @return True if the string started with UTF-8 BOM
-     */
-    inline bool stripBOM()
-	{ return checkBOM(c_str()) && &(*this = c_str() + 3); }
-
-    /**
      * Get the hash of the contained string.
      * @return The hash of the string.
      */

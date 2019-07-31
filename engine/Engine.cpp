@@ -20,11 +20,13 @@
 #include "yatengine.h"
 #include "yateversn.h"
 
+// The "sighandler_t" typedef is GNU-specific, so define our own.
+typedef void (*sig_func_t)(int);
+
 #ifdef _WINDOWS
 
 #include <process.h>
 #include <shlobj.h>
-typedef void (*sig_func_t)(int);
 #define RTLD_NOW 0
 #define dlopen(name,flags) LoadLibrary(name)
 #define dlclose !FreeLibrary
@@ -50,7 +52,6 @@ __declspec(dllimport) BOOL WINAPI SHGetSpecialFolderPathA(HWND,LPSTR,INT,BOOL);
 #include <sys/wait.h>
 #include <sys/resource.h>
 typedef void* HMODULE;
-#define sig_func_t sighandler_t
 #define PATH_SEP "/"
 #ifndef CFG_DIR
 #ifdef HAVE_MACOSX_SUPPORT

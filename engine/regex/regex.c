@@ -481,8 +481,9 @@ static int debug = 0;
 #define DEBUG_PRINT_DOUBLE_STRING(w, s1, sz1, s2, sz2)			\
   if (debug) print_double_string (w, s1, sz1, s2, sz2)
 
-
-extern void printchar ();
+// printchar is not defined
+//extern void printchar ();
+#define printchar(c) printf("%c", c);
 
 /* Print the fastmap in human-readable form.  */
 

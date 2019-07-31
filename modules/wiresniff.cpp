@@ -229,11 +229,13 @@ void WireSniffPlugin::initialize()
         return;
     }
 	
+    #ifdef __linux__
     int val = 1;
     if (!s_socket.setOption(IPPROTO_IP, IP_MTU_DISCOVER, &val, sizeof(val))) {
 	Debug(this,DebugWarn,"Socket %s option is not set!", strerror(s_socket.error()));
         return;
     }
+    #endif
 
     if (!s_socket.setBlocking(false)) {
 	s_socket.terminate();

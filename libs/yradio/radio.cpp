@@ -23,8 +23,18 @@
 #include <yateradio.h>
 #include <string.h>
 
-#ifndef htobe32
+#ifdef __APPLE__
+// Mac OS X / Darwin features
+#include <libkern/OSByteOrder.h>
+#define __bswap_16(x) OSSwapInt16(x)
+#define __bswap_32(x) OSSwapInt32(x)
+#define __bswap_64(x) OSSwapInt64(x)
+#else
+/* byteswap.h is a gcc specific include file */
 #include <byteswap.h>
+#endif
+
+#ifndef htobe32
 
 #ifdef LITTLE_ENDIAN
 

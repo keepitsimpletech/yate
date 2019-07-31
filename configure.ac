@@ -1597,11 +1597,6 @@ if [[ "x$ac_cv_use_libqt4" = "xyes" ]]; then
 	if [[ "x$incqt" != "x" -a "x$libqt" != "x" ]]; then
 	    HAVE_QT4=yes
 	    QT4_INC="-I$incqt -I$incqt/QtUiTools -I$incqt/QtGui -I$incqt/QtXml -I$incqt/QtCore"
-	    case "$uname_os" in
-		*Darwin)
-		    QT4_INC="-D__USE_WS_X11__ $QT4_INC"
-		    ;;
-	    esac
 	    QT4_LIB="-L$libqt -lQtUiTools -lQtGui -lQtXml -lQtCore"
 	    QT4_INC_NET="-I$incqt/QtNetwork"
 	    QT4_LIB_NET="-L$libqt -lQtNetwork"
