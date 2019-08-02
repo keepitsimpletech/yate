@@ -1,11 +1,11 @@
 # YateClient on macOS
 
-## Install Qt4 from [MacPorts](https://www.macports.org)
+## Install Qt5 from [MacPorts](https://www.macports.org)
 ```sh
-# Using MacPorts install Qt4
-sudo port install qt4-mac
+# Using MacPorts install Qt5
+sudo port install qt5
 # Add /opt/local/libexec/qt4/bin to your shell env PATH for qmake and moc
-export PATH="/opt/local/libexec/qt4/bin:$PATH"
+export PATH="/opt/local/libexec/qt5/bin:$PATH"
 ```
 
 ## RECOMMENDED: Use Qmake to build YateClient

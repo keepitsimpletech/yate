@@ -118,13 +118,13 @@ CustomTable::CustomTable(const char *name, const NamedList& params, QWidget* par
 	// Set column resize mode
 	const String& resizeMode = objListItem(resize,i);
 	if (resizeMode == "fixed")
-	    h->setResizeMode(i,QHeaderView::Fixed);
+	    h->setSectionResizeMode(i,QHeaderView::Fixed);
 	else if (resizeMode == "stretch")
-	    h->setResizeMode(i,QHeaderView::Stretch);
+	    h->setSectionResizeMode(i,QHeaderView::Stretch);
 	else if (resizeMode == "contents")
-	    h->setResizeMode(i,QHeaderView::ResizeToContents);
+	    h->setSectionResizeMode(i,QHeaderView::ResizeToContents);
 	else
-	    h->setResizeMode(i,QHeaderView::Interactive);
+	    h->setSectionResizeMode(i,QHeaderView::Interactive);
     }
     TelEngine::destruct(cols);
     TelEngine::destruct(title);
@@ -442,7 +442,7 @@ int CustomTable::getColumn(const QString& name, bool hidden, bool caseInsensitiv
 // (de)activate enter key press action
 void CustomTable::setEnterPressNotify(bool value)
 {
-    QAction* act = qFindChild<QAction*>(this,m_enterKeyActionName);
+    QAction* act = this->findChild<QAction*>(m_enterKeyActionName);
     if (act) {
 	if (!value) {
 	    QWidget::removeAction(act);
@@ -696,7 +696,7 @@ void* CustomTableFactory::create(const String& type, const char* name, NamedList
 	String* wName = params->getParam("parentwidget");
 	QtWindow* wnd = static_cast<QtWindow*>(Client::self()->getWindow(*wndname));
 	if (wnd && !TelEngine::null(wName))
-	    parentWidget = qFindChild<QWidget*>(wnd,QtClient::setUtf8(*wName));
+	    parentWidget = wnd->findChild<QWidget*>(QtClient::setUtf8(*wName));
     }
     if (type == "CustomTable")
 	return new CustomTable(name,*params,parentWidget);

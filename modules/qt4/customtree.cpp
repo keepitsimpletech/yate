@@ -583,13 +583,13 @@ QtCustomTree::QtCustomTree(const char* name, const NamedList& params, QWidget* p
 		    continue;
 		const String& szMode = header ? objListItem(sizeMode,n) : String::empty();
 		if (szMode == "fixed")
-		    header->setResizeMode(n,QHeaderView::Fixed);
+		    header->setSectionResizeMode(n,QHeaderView::Fixed);
 		else if (szMode == "stretch")
-		    header->setResizeMode(n,QHeaderView::Stretch);
+		    header->setSectionResizeMode(n,QHeaderView::Stretch);
 		else if (szMode == "contents")
-		    header->setResizeMode(n,QHeaderView::ResizeToContents);
+		    header->setSectionResizeMode(n,QHeaderView::ResizeToContents);
 		else
-		    header->setResizeMode(n,QHeaderView::Interactive);
+		    header->setSectionResizeMode(n,QHeaderView::Interactive);
 	    }
 	    TelEngine::destruct(id);
 	    TelEngine::destruct(title);
@@ -3778,7 +3778,8 @@ void QtItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option
     QVariant checkVar = index.data(Qt::CheckStateRole);
     if (checkVar.isValid()) {
 	checkState = static_cast<Qt::CheckState>(checkVar.toInt());
-	checkRect = check(opt,opt.rect,checkVar);
+	checkRect = opt.rect; //check(opt,opt.rect,checkVar);
+	// TODO:!
     }
     // Retrieve image (decoration)
     QPixmap pixmap;
@@ -3816,7 +3817,7 @@ void QtItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option
     if (m_roleQtDrawItems != Qt::UserRole) {
 	pVar = index.data(m_roleQtDrawItems);
 	if (pVar.type() == QVariant::UserType) {
-	    QtRefObjectHolder holder = qVariantValue<QtRefObjectHolder>(pVar);
+	    QtRefObjectHolder holder = pVar.value<QtRefObjectHolder>(); //qVariantSetValue<QtRefObjectHolder>(pVar);
 	    extraPaint = static_cast<QtPaintItems*>((RefObject*)holder.m_refObj);
 	}
     }
@@ -3936,7 +3937,7 @@ void QtItemDelegate::drawBackground(QPainter* painter, const QStyleOptionViewIte
 	QItemDelegate::drawBackground(painter,opt,index);
 	return;
     }
-    if (qVariantCanConvert<QBrush>(var)) {
+    if (var.canConvert(QMetaType::QBrush)) {
 	QPointF oldBO = painter->brushOrigin();
 	painter->setBrushOrigin(opt.rect.topLeft());
 	painter->fillRect(opt.rect,qvariant_cast<QBrush>(var));
@@ -4037,7 +4038,7 @@ void* CustomTreeFactory::create(const String& type, const char* name, NamedList*
 	String* wName = params->getParam("parentwidget");
 	QtWindow* wnd = static_cast<QtWindow*>(Client::self()->getWindow(*wndname));
 	if (wnd && !TelEngine::null(wName))
-	    parentWidget = qFindChild<QWidget*>(wnd,QtClient::setUtf8(*wName));
+	    parentWidget = wnd->findChild<QWidget*>(QtClient::setUtf8(*wName));
     }
     if (type == "ContactList")
         return new ContactList(name,*params,parentWidget);

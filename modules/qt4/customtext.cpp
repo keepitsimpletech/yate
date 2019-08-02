@@ -597,7 +597,7 @@ void* CustomTextFactory::create(const String& type, const char* name, NamedList*
 	String* wName = params->getParam("parentwidget");
 	QtWindow* wnd = static_cast<QtWindow*>(Client::self()->getWindow(*wndname));
 	if (wnd && !TelEngine::null(wName))
-	    parentWidget = qFindChild<QWidget*>(wnd,QtClient::setUtf8(*wName));
+	    parentWidget = wnd->findChild<QWidget*>(QtClient::setUtf8(*wName));
     }
     if (type == "CustomTextEdit")
 	return new CustomTextEdit(name,*params,parentWidget);

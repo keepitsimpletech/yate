@@ -1,4 +1,14 @@
-# Qt YateClient
+# YateClient with Qt5
+
+> See [README-mac.md](README-mac.md) to run YateClient on macOS.
+
+## Linux Dependecies (tested on Ubuntu 18.04.2 LTS)
+
+`sudo apt install <dep>`
+- libz-dev
+- qt5-default
+- qttools5-dev
+- qtmultimedia5-dev
 
 ## Qmake project to generate Makefile
 

@@ -49,8 +49,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include <QtGlobal>
 #include <QtGui>
 #include <QSound>
+#include <QAudioDeviceInfo>
+#include <QtWidgets>
 
 namespace TelEngine {
 
@@ -2050,8 +2053,8 @@ public:
      * @param on True to show, false to hide
      */
     static inline bool showBusyChild(QWidget* target, bool on) {
-	    QtBusyWidget* w = target ? qFindChild<QtBusyWidget*>(
-		target,target->objectName() + s_busySuffix) : 0;
+	    QtBusyWidget* w = target ? target->findChild<QtBusyWidget*>(
+		target->objectName() + s_busySuffix) : nullptr;
 	    if (!w)
 		return false;
 	    w->showBusy(on);

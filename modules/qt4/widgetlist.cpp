@@ -548,7 +548,7 @@ bool WidgetList::eventFilter(QObject* watched, QEvent* event)
 		QWidget* sel = selectedItem();
 		if (sel && buildQChildNameProp(child,sel,"_yate_keypress_redirect") &&
 		    QtClient::sendEvent(*event,sel,child)) {
-		    QWidget* wid = qFindChild<QWidget*>(sel,child);
+		    QWidget* wid = sel->findChild<QWidget*>(child);
 		    if (wid)
 			wid->setFocus();
 		    return true;
@@ -677,7 +677,7 @@ void* WidgetListFactory::create(const String& type, const char* name, NamedList*
 	String* wName = params->getParam("parentwidget");
 	QtWindow* wnd = static_cast<QtWindow*>(Client::self()->getWindow(*wndname));
 	if (wnd && !TelEngine::null(wName))
-	    parentWidget = qFindChild<QWidget*>(wnd,QtClient::setUtf8(*wName));
+	    parentWidget = wnd->findChild<QWidget*>(QtClient::setUtf8(*wName));
     }
     if (type == "WidgetList")
 	return new WidgetList(name,*params,parentWidget);

@@ -1,14 +1,14 @@
-#lessThan(QT_MAJOR_VERSION, 5) {
-#    error("YateClient requires Qt 5 or greater")
-#}
+lessThan(QT_MAJOR_VERSION, 5) {
+    error("YateClient requires Qt 5 or greater")
+}
 
 include(../YateGlobal.pri)
 
 TARGET = YateClient
 TEMPLATE = app
 
-CONFIG += qt uitools
-QT += core gui widgets xml network
+CONFIG += qt
+QT += core gui widgets xml network multimedia uitools
 
 DESTDIR = ../build
 OBJECTS_DIR = $${DESTDIR}/clients
