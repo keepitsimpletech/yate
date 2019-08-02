@@ -9,13 +9,12 @@ make -f Makefile.qmake
 
 ### Run Yate Client
 
-See [README-mac.md](README-mac.md) to run YateClient on macOS.
+> See [README-mac.md](README-mac.md) to run YateClient on macOS.
 
-On Linux (not tested):
-
+On Linux:
 ```
 cd build
-LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./YateClient -e ../share -c client-conf.d
+LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./YateClient -e ../share -c client-conf.d -m .
 ```
 
 ## Links

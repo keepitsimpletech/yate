@@ -101,3 +101,7 @@ mac {
 
     QMAKE_BUNDLE_DATA += SKINS SOUNDS HELP CONFD
 }
+
+unix:!mac {
+    QMAKE_POST_LINK += $$quote(ln -s libbasemodules.so.1.0.0 $${DESTDIR}/libbasemodules.yate $$escape_expand(\n\t))
+}
