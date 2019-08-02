@@ -1,0 +1,40 @@
+# Qt YateClient
+
+## Qmake project to generate Makefile
+
+```
+qmake -o Makefile.qmake Yate.pro
+make -f Makefile.qmake
+```
+
+### Run Yate Client
+
+See [README-mac.md](README-mac.md) to run YateClient on macOS.
+
+On Linux (not tested):
+
+```
+cd build
+LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./YateClient -e ../share -c client-conf.d
+```
+
+## Links
+
+### Reference Links
+
+- https://doc.qt.io/qt-5/qmake-manual.html
+- https://doc.qt.io/qt-5.9/osx-deployment.html
+- https://wiki.qt.io/Undocumented_QMake
+
+### Blogs
+
+- https://www.toptal.com/qt/vital-guide-qmake
+- https://www.ics.com/blog/your-guide-deploying-qt-applications-macos
+- https://hodapple.com/blag/posts/2011-11-13-qmake-hackery-dependencies-external-preprocessing.html
+- http://colby.id.au/pre-pre-build-commands-with-qmake/
+
+### Real world
+
+- https://github.com/wereturtle/ghostwriter/blob/master/ghostwriter.pro
+- https://github.com/OpenBoard-org/OpenBoard/blob/master/OpenBoard.pro
+- https://chromium.googlesource.com/chromium/blink/+/9a94733bb98bd2a2b61d3e54ce0d2b8aac316ee2/Tools/qmake/mkspecs/features/default_pre.prf

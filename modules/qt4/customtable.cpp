@@ -705,6 +705,6 @@ void* CustomTableFactory::create(const String& type, const char* name, NamedList
 
 }; // anonymous namespace
 
-#include "customtable.moc"
+#include "moc_customtable.cpp"
 
 /* vi: set ts=8 sw=4 sts=4 noet: */

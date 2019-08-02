@@ -686,6 +686,6 @@ void* WidgetListFactory::create(const String& type, const char* name, NamedList*
 
 }; // anonymous namespace
 
-#include "widgetlist.moc"
+#include "moc_widgetlist.cpp"
 
 /* vi: set ts=8 sw=4 sts=4 noet: */

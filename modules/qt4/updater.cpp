@@ -479,6 +479,6 @@ void Updater::initialize()
 
 }; // anonymous namespace
 
-#include "updater.moc"
+#include "moc_updater.cpp"
 
 /* vi: set ts=8 sw=4 sts=4 noet: */

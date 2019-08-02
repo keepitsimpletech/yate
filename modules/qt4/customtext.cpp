@@ -606,6 +606,6 @@ void* CustomTextFactory::create(const String& type, const char* name, NamedList*
 
 }; // anonymous namespace
 
-#include "customtext.moc"
+#include "moc_customtext.cpp"
 
 /* vi: set ts=8 sw=4 sts=4 noet: */

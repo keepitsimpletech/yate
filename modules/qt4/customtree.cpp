@@ -4050,6 +4050,6 @@ void* CustomTreeFactory::create(const String& type, const char* name, NamedList*
 
 }; // anonymous namespace
 
-#include "customtree.moc"
+#include "moc_customtree.cpp"
 
 /* vi: set ts=8 sw=4 sts=4 noet: */
