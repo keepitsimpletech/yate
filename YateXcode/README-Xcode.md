@@ -2,15 +2,11 @@
 
 ## Prereqs
 
-- Xcode 10
-- Qt4 installed from my MacPorts
-    - `sudo port install qt4-mac`
+- Xcode 10+
+- Qt5 installed
+    - Recommended MacPorts: `sudo port install qt5`
+- Update [YateXcode.xcconfig](Configurations/YateClient.xcconfig) and verify `QTDIR` and `QTMOC` are correct
 
-## Hard Coded Paths
+## TODO
 
-###  YateClient App
-
-- Linking to Qt* frameworks
-- Header Search Paths
-- Framework Search Paths
-- Custom Xcode Build Rule for "Qt MOC" needs path to `moc`
+1. Build script to replace custom Xcode build rule "Qt MOC"

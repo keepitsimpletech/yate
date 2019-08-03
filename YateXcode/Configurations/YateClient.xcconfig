@@ -1,0 +1,24 @@
+//
+//  YateClient.xcconfig
+//  YateClient
+//
+//  Created by king on 8/3/19.
+//  Copyright © 2019 Keep It Simple Technologies, Inc. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+QTDIR = /opt/local/libexec/qt5
+
+// Qt Meta Object Compiler (moc) needed in custom Xcode build rule to process `*/qt4/*.h` -> `moc_*.cpp`
+QTMOC = $(QTDIR)/bin/moc
+
+HEADER_SEARCH_PATHS = .. ../clients/qt4 ../modules/qt4 $(QTDIR)/include/**
+FRAMEWORK_SEARCH_PATHS = $(QTDIR)/lib
+LIBRARY_SEARCH_PATHS = $(QTDIR)/lib
+
+QT_FRAMEWORKS = -framework QtCore -framework QtGui -framework QtWidgets -framework QtXml -framework QtNetwork -framework QtMultimedia
+QT_LIBS = -lQt5UiTools
+
+OTHER_LDFLAGS = $(inherited) $(QT_FRAMEWORKS) $(QT_LIBS)

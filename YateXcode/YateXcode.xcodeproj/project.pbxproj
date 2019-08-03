@@ -111,7 +111,6 @@
 		3C16179C22F2190A0042F635 /* libysdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C16148E22F217B50042F635 /* libysdp.a */; };
 		3C16179D22F2190A0042F635 /* libysip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C16148622F217AE0042F635 /* libysip.a */; };
 		3C16179E22F219170042F635 /* jabberclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C16175922F218820042F635 /* jabberclient.cpp */; };
-		3C1617C022F21B4B0042F635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C1617BF22F21B4B0042F635 /* Assets.xcassets */; };
 		3C1617CB22F21BA00042F635 /* main-qt4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C1617A022F21AE10042F635 /* main-qt4.cpp */; };
 		3C1617CC22F21BA50042F635 /* qt4client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C1617AF22F21AE10042F635 /* qt4client.cpp */; };
 		3C1617CD22F21BB20042F635 /* coreaudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C16175E22F218820042F635 /* coreaudio.cpp */; };
@@ -130,15 +129,11 @@
 		3C912B4022F2295B00DF5FF7 /* widgetlist.h in Sources */ = {isa = PBXBuildFile; fileRef = 3C16176522F218820042F635 /* widgetlist.h */; };
 		3C912B4122F2295B00DF5FF7 /* customtree.h in Sources */ = {isa = PBXBuildFile; fileRef = 3C16176622F218820042F635 /* customtree.h */; };
 		3C912B4222F2295B00DF5FF7 /* customtable.h in Sources */ = {isa = PBXBuildFile; fileRef = 3C16176B22F218820042F635 /* customtable.h */; };
-		3C912B4822F22D2300DF5FF7 /* QtUiTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C912B4422F22D2300DF5FF7 /* QtUiTools.framework */; };
-		3C912B4922F22D2300DF5FF7 /* QtNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C912B4522F22D2300DF5FF7 /* QtNetwork.framework */; };
-		3C912B4A22F22D2300DF5FF7 /* QtGui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C912B4622F22D2300DF5FF7 /* QtGui.framework */; };
-		3C912B4B22F22D2300DF5FF7 /* QtXml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C912B4722F22D2300DF5FF7 /* QtXml.framework */; };
 		3C912B4C22F22E9100DF5FF7 /* clientarchive.h in Sources */ = {isa = PBXBuildFile; fileRef = 3C16176D22F218820042F635 /* clientarchive.h */; };
-		3C912B4E22F22ED300DF5FF7 /* QtCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C912B4D22F22ED300DF5FF7 /* QtCore.framework */; };
 		3C912B5022F22FC400DF5FF7 /* share in Resources */ = {isa = PBXBuildFile; fileRef = 3C912B4F22F22FC400DF5FF7 /* share */; };
 		3C912B5122F230E900DF5FF7 /* libyate.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3C50DC7A22F2120B0098AADD /* libyate.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3C912B5422F230E900DF5FF7 /* libyatebasemodules.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3C16177522F218970042F635 /* libyatebasemodules.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3CD55EE022F64F1B003177FE /* null_team.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3CD55EDF22F64B5F003177FE /* null_team.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -147,12 +142,14 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*/qt4/*.h";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			name = "Qt MOC";
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/moc_${INPUT_FILE_BASE}.cpp",
 			);
-			script = "/opt/local/libexec/qt4/bin/moc ${INPUT_FILE_PATH} -o ${DERIVED_FILE_DIR}/moc_${INPUT_FILE_BASE}.cpp\n";
+			script = "${QTMOC} ${INPUT_FILE_PATH} -o ${DERIVED_FILE_DIR}/moc_${INPUT_FILE_BASE}.cpp\n";
 		};
 /* End PBXBuildRule section */
 
@@ -896,7 +893,6 @@
 		3C16179622F218E30042F635 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3C1617A022F21AE10042F635 /* main-qt4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-qt4.cpp"; sourceTree = "<group>"; };
 		3C1617A122F21AE10042F635 /* null_team-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "null_team-16.png"; sourceTree = "<group>"; };
-		3C1617A222F21AE10042F635 /* yate-qt4.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = "yate-qt4.dSYM"; sourceTree = "<group>"; };
 		3C1617A322F21AE10042F635 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		3C1617A422F21AE10042F635 /* null_team-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "null_team-64.png"; sourceTree = "<group>"; };
 		3C1617A522F21AE10042F635 /* null_team-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "null_team-48.png"; sourceTree = "<group>"; };
@@ -911,20 +907,16 @@
 		3C1617B022F21AE10042F635 /* Makefile.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
 		3C1617B222F21AE10042F635 /* run-qt4 */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "run-qt4"; sourceTree = "<group>"; };
 		3C1617B722F21B490042F635 /* YateClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YateClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C1617BF22F21B4B0042F635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C1617C422F21B4B0042F635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C1617C722F21B4B0042F635 /* YateClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YateClient.entitlements; sourceTree = "<group>"; };
 		3C1617D522F21BE50042F635 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3C1617D622F21BE50042F635 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		3C1617D722F21BE50042F635 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		3C36200A22F601A100C172D8 /* YateClient.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = YateClient.xcconfig; sourceTree = "<group>"; };
 		3C50DC7A22F2120B0098AADD /* libyate.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libyate.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C912B4422F22D2300DF5FF7 /* QtUiTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtUiTools.framework; path = ../../../../../../opt/local/libexec/qt4/Library/Frameworks/QtUiTools.framework; sourceTree = "<group>"; };
-		3C912B4522F22D2300DF5FF7 /* QtNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtNetwork.framework; path = ../../../../../../opt/local/libexec/qt4/Library/Frameworks/QtNetwork.framework; sourceTree = "<group>"; };
-		3C912B4622F22D2300DF5FF7 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = ../../../../../../opt/local/libexec/qt4/Library/Frameworks/QtGui.framework; sourceTree = "<group>"; };
-		3C912B4722F22D2300DF5FF7 /* QtXml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtXml.framework; path = ../../../../../../opt/local/libexec/qt4/Library/Frameworks/QtXml.framework; sourceTree = "<group>"; };
-		3C912B4D22F22ED300DF5FF7 /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = ../../../../../../opt/local/libexec/qt4/Library/Frameworks/QtCore.framework; sourceTree = "<group>"; };
 		3C912B4F22F22FC400DF5FF7 /* share */ = {isa = PBXFileReference; lastKnownFileType = folder; name = share; path = ../share; sourceTree = "<group>"; };
 		3C912B5822F234C600DF5FF7 /* README-Xcode.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-Xcode.md"; sourceTree = "<group>"; };
+		3CD55EDF22F64B5F003177FE /* null_team.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = null_team.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -981,11 +973,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C912B4E22F22ED300DF5FF7 /* QtCore.framework in Frameworks */,
-				3C912B4822F22D2300DF5FF7 /* QtUiTools.framework in Frameworks */,
-				3C912B4922F22D2300DF5FF7 /* QtNetwork.framework in Frameworks */,
-				3C912B4A22F22D2300DF5FF7 /* QtGui.framework in Frameworks */,
-				3C912B4B22F22D2300DF5FF7 /* QtXml.framework in Frameworks */,
 				3C1617D822F21BE50042F635 /* AudioToolbox.framework in Frameworks */,
 				3C1617D922F21BE50042F635 /* CoreAudio.framework in Frameworks */,
 				3C1617DA22F21BE50042F635 /* AudioUnit.framework in Frameworks */,
@@ -1081,11 +1068,6 @@
 		3C16146D22F215180042F635 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C912B4D22F22ED300DF5FF7 /* QtCore.framework */,
-				3C912B4622F22D2300DF5FF7 /* QtGui.framework */,
-				3C912B4522F22D2300DF5FF7 /* QtNetwork.framework */,
-				3C912B4422F22D2300DF5FF7 /* QtUiTools.framework */,
-				3C912B4722F22D2300DF5FF7 /* QtXml.framework */,
 				3C1617D522F21BE50042F635 /* AudioToolbox.framework */,
 				3C1617D722F21BE50042F635 /* AudioUnit.framework */,
 				3C1617D622F21BE50042F635 /* CoreAudio.framework */,
@@ -2072,9 +2054,9 @@
 		3C16179F22F21AE10042F635 /* clients */ = {
 			isa = PBXGroup;
 			children = (
+				3CD55EDF22F64B5F003177FE /* null_team.icns */,
 				3C1617A022F21AE10042F635 /* main-qt4.cpp */,
 				3C1617A122F21AE10042F635 /* null_team-16.png */,
-				3C1617A222F21AE10042F635 /* yate-qt4.dSYM */,
 				3C1617A322F21AE10042F635 /* Makefile */,
 				3C1617A422F21AE10042F635 /* null_team-64.png */,
 				3C1617A522F21AE10042F635 /* null_team-48.png */,
@@ -2104,17 +2086,25 @@
 		3C1617B822F21B490042F635 /* YateClient */ = {
 			isa = PBXGroup;
 			children = (
-				3C1617BF22F21B4B0042F635 /* Assets.xcassets */,
 				3C1617C422F21B4B0042F635 /* Info.plist */,
 				3C1617C722F21B4B0042F635 /* YateClient.entitlements */,
 			);
 			path = YateClient;
 			sourceTree = "<group>";
 		};
+		3C36200922F6017A00C172D8 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				3C36200A22F601A100C172D8 /* YateClient.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		3C50DC7122F2120B0098AADD = {
 			isa = PBXGroup;
 			children = (
 				3C912B5822F234C600DF5FF7 /* README-Xcode.md */,
+				3C36200922F6017A00C172D8 /* Configurations */,
 				3C912B4F22F22FC400DF5FF7 /* share */,
 				3C16179F22F21AE10042F635 /* clients */,
 				3C16141522F214E70042F635 /* engine */,
@@ -2131,8 +2121,8 @@
 				3C16147622F2156C0042F635 /* yatewiresniff.h */,
 				3C16147322F2156C0042F635 /* yatexml.h */,
 				3C1617B822F21B490042F635 /* YateClient */,
-				3C50DC7B22F2120B0098AADD /* Products */,
 				3C16146D22F215180042F635 /* Frameworks */,
+				3C50DC7B22F2120B0098AADD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2426,7 +2416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C912B5022F22FC400DF5FF7 /* share in Resources */,
-				3C1617C022F21B4B0042F635 /* Assets.xcassets in Resources */,
+				3CD55EE022F64F1B003177FE /* null_team.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2779,25 +2769,15 @@
 		};
 		3C1617C922F21B4B0042F635 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C36200A22F601A100C172D8 /* YateClient.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YateClient/YateClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R9RAPSADWV;
-				FRAMEWORK_SEARCH_PATHS = (
-					/opt/local/libexec/qt4/Library/Frameworks,
-					/opt/local/libexec/qt4/lib,
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					..,
-					../clients/qt4,
-					../modules/qt4,
-					"/opt/local/libexec/qt4/include/**",
 				);
 				INFOPLIST_FILE = YateClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2811,22 +2791,12 @@
 		};
 		3C1617CA22F21B4B0042F635 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C36200A22F601A100C172D8 /* YateClient.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YateClient/YateClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R9RAPSADWV;
-				FRAMEWORK_SEARCH_PATHS = (
-					/opt/local/libexec/qt4/Library/Frameworks,
-					/opt/local/libexec/qt4/lib,
-				);
-				HEADER_SEARCH_PATHS = (
-					..,
-					../clients/qt4,
-					../modules/qt4,
-					"/opt/local/libexec/qt4/include/**",
-				);
 				INFOPLIST_FILE = YateClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2892,7 +2862,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ..;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2951,7 +2921,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ..;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
