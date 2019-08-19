@@ -17,10 +17,9 @@ software). We have chosen this license to help the growth of this project.
 
 ## Building YATE Software
 
-> See [README-qt.md](README-qt.md) to build and run YateClient with Qmake and Qt5.
-> See [README-mac.md](README-mac.md) to build and run YateClient on macOS.
+> - See [README-qt.md](README-qt.md) to build and run YateClient with Qmake and Qt5.
+> - See [README-mac.md](README-mac.md) to build and run YateClient on macOS.
 
-YATE have been tested on Linux and Windows and was ported to FreeBSD.
 Please report bugs at bugs@voip.null.ro
 
 To build Yate the quick way is:
@@ -53,8 +52,8 @@ build them all.
 
 ## Running YATE
 
-> See [README-qt.md](README-qt.md) to build and run YateClient with Qmake.
-> See [README-mac.md](README-mac.md) to build and run YateClient on macOS.
+> - See [README-qt.md](README-qt.md) to build and run YateClient with Qmake.
+> - See [README-mac.md](README-mac.md) to build and run YateClient on macOS.
 
 You can run YATE directly from the build directory - just use the `run` script
 from the main directory:

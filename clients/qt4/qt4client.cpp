@@ -1159,11 +1159,14 @@ bool QtWindow::setParams(const NamedList& params)
 	    NamedString* menu = nl->getParam(YSTRING("menu"));
 	    if (menu) {
 		QMenu* oldMenu = trayIcon->contextMenu();
-		if (oldMenu)
-		    delete oldMenu;
 		NamedList* nlMenu = YOBJECT(NamedList,menu);
 		trayIcon->setContextMenu(nlMenu ? QtClient::buildMenu(*nlMenu,*menu,this,
 		    SLOT(action()),SLOT(toggled(bool)),this) : 0);
+		// Moved `delete oldMenu` down here, beccause it was causing a crash
+		// on Linux + Qt5 in QDBusTrayIcon::updateMenu
+		// https://bugreports.qt.io/browse/QTBUG-77334
+		if (oldMenu)
+			delete oldMenu;
 	    }
 	    if (nl->getBoolValue(YSTRING("show"),true))
 		trayIcon->setVisible(true);

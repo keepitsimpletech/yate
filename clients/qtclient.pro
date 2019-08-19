@@ -17,8 +17,7 @@ RCC_DIR = $${DESTDIR}/clients
 UI_DIR = $${DESTDIR}/clients
 
 INCLUDEPATH += .. qt4 ../modules/qt4 
-unix:!mac:LIBS += -lpthread  # Already included in macOS system lib
-# macOS frameworks for coreaudio.cpp
+unix:!mac:LIBS += -lpthread -lasound
 mac:LIBS += -framework CoreFoundation -framework CoreServices -framework CoreAudio -framework AudioUnit -framework AudioToolbox
 LIBS += -L$$DESTDIR -lyate -lbasemodules
 
@@ -33,7 +32,7 @@ SOURCES += main-qt4.cpp \
 
 mac:SOURCES += ../modules/client/coreaudio.cpp
 win32:SOURCES += ../modules/client/dsoundchan.cpp
-unix:!mac:SOURCES += ../modules/client/osschan.cpp
+unix:!mac:SOURCES += ../modules/client/alsachan.cpp
 
 HEADERS += qt4/qt4client.h \
            ../modules/qt4/widgetlist.h \
