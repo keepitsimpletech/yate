@@ -2,8 +2,8 @@
 
 ## Install Qt5 from [MacPorts](https://www.macports.org)
 ```sh
-# Using MacPorts install Qt5
-sudo port install qt5
+# Using MacPorts install Qt5 and OpenSSL
+sudo port install qt5 openssl
 # Add /opt/local/libexec/qt4/bin to your shell env PATH for qmake and moc
 export PATH="/opt/local/libexec/qt5/bin:$PATH"
 ```

@@ -7,9 +7,11 @@ DESTDIR = ../build
 OBJECTS_DIR = $${DESTDIR}/modules
 
 # unix and (:) not mac
-unix:!mac:DEFINES += HAVE_MALLINFO
+unix:!mac:DEFINES += HAVE_MALLINFO USE_TLS_METHOD NO_AESCTR
 INCLUDEPATH += .. ../libs/yrtp ../libs/ysip ../libs/ysdp ../libs/yiax ../libs/yjabber
-LIBS += -lz
+mac:INCLUDEPATH += /opt/local/include
+mac:LIBS += -L/opt/local/lib
+LIBS += -lz -lssl -lcrypto
 LIBS += -L$$DESTDIR -L$$DESTDIR/libs -lyate -lyrtp -lysip -lysdp -lyjabber -lyiax
 
 SOURCES += cdrbuild.cpp \
@@ -40,4 +42,5 @@ SOURCES += cdrbuild.cpp \
             msgsniff.cpp \
             enumroute.cpp \
             zlibcompress.cpp \
+            openssl.cpp \
             # pbx.cpp \
