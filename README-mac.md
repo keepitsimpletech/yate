@@ -12,14 +12,17 @@ export PATH="/opt/local/libexec/qt5/bin:$PATH"
 
 ### Build
 
-```
-qmake -o Makefile.qmake Yate.pro
+```sh
+./autogen.sh 
+./configure  # create yateversn.h
+make yatepaths.h  # create yatepaths.h
+qmake -o Makefile.qmake Yate.pro  # generate Makefile.qmake
 make -f Makefile.qmake
 ```
 
 ### Run
 
-```
+```sh
 cd build
 DYLD_LIBRARY_PATH=. ./YateClient.app/Contents/MacOS/YateClient -e ../share -c client-conf.d
 ```

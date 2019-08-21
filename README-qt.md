@@ -12,8 +12,11 @@
 
 ## Qmake project to generate Makefile
 
-```
-qmake -o Makefile.qmake Yate.pro
+```sh
+./autogen.sh 
+./configure  # create yateversn.h
+make yatepaths.h  # create yatepaths.h
+qmake -o Makefile.qmake Yate.pro  # generate Makefile.qmake
 make -f Makefile.qmake
 ```
 
@@ -22,7 +25,7 @@ make -f Makefile.qmake
 > See [README-mac.md](README-mac.md) to run YateClient on macOS.
 
 On Linux:
-```
+```sh
 cd build
 LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./YateClient -e ../share -c client-conf.d -m .
 ```
