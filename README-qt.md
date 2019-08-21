@@ -6,6 +6,7 @@
 
 `sudo apt install <dep>`
 - libz-dev
+- libasound2-dev
 - qt5-default
 - qttools5-dev
 - qtmultimedia5-dev
