@@ -29,7 +29,6 @@
 #include <limits.h>
 #include <sys/types.h>
 #include <stddef.h>
-#include <unistd.h>
 #include <errno.h>
 #include <stdarg.h>
 
@@ -83,8 +82,6 @@ typedef unsigned long in_addr_t;
 #define strncasecmp _strnicmp
 #endif
 
-#define vsnprintf _vsnprintf
-#define snprintf _snprintf
 #define strdup _strdup
 #define strtoll _strtoi64
 #define open _open
@@ -125,6 +122,7 @@ typedef unsigned long in_addr_t;
 
 #else /* _WINDOWS */
 
+#include <unistd.h>
 #include <sys/time.h>
 #include <sys/socket.h>
 

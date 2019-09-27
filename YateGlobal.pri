@@ -6,7 +6,6 @@ mac:DEFINES += HAVE_MACOSX_SUPPORT
 
 win32 {
 	DEFINES += LIBYATE_EXPORTS ATOMIC_OPS
-	HEADERS += $$files(windows/*.h)
 }
 
 # Because the flags in QMAKE_CXX_FLAGS will always come before 

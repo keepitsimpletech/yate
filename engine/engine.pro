@@ -23,6 +23,7 @@ linux:DEFINES += FDSIZE_HACK=8192 HAVE_GHBN_R HAVE_GHBN2_R HAVE_GHBN2
 INCLUDEPATH += .. ./tables ./regex
 mac:INCLUDEPATH += ./macosx
 linux:INCLUDEPATH -= ./regex
+win32:INCLUDEPATH += ../windows
 
 LIBS += -lresolv -lpthread
 mac:LIBS += -lobjc -framework Foundation
