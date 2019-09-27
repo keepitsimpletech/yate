@@ -3,9 +3,10 @@ TEMPLATE = subdirs
 engine.makefile = Makefile.qmake
 
 libs.makefile = Makefile.qmake
+libs.depends += engine
 
 modules.makefile = Makefile.qmake
-modules.depends += engine 
+modules.depends += libs
 
 clients.file = clients/qtclient.pro
 clients.makefile = Makefile.qmake

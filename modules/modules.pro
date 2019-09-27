@@ -7,7 +7,8 @@ DESTDIR = ../build
 OBJECTS_DIR = $${DESTDIR}/modules
 
 # unix and (:) not mac
-unix:!mac:DEFINES += HAVE_MALLINFO USE_TLS_METHOD NO_AESCTR
+unix:!mac:DEFINES += HAVE_MALLINFO USE_TLS_METHOD
+unix:mac:DEFINES += NO_AESCTR
 INCLUDEPATH += .. ../libs/yrtp ../libs/ysip ../libs/ysdp ../libs/yiax ../libs/yjabber
 mac:INCLUDEPATH += /opt/local/include
 mac:LIBS += -L/opt/local/lib
