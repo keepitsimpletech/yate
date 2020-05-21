@@ -14,15 +14,17 @@
 
 ## Centos Linux Dependencies (tested on Centos8)
 
-  - qt5-qtbase-devel
-  - 
-  - qt5-qtmultimedia-devel
-  - alsa-lib-devel
-  - openssl-devel
-  - zlib-devel
-  - autoconf
-  - make
-  - gcc-c++
+Enable Powertools repository on Centos 8
+
+- qt5-qtbase-devel
+- qt5-devel (From Powertools repository)
+- qt5-qtmultimedia-devel
+- alsa-lib-devel
+- openssl-devel
+- zlib-devel
+- autoconf
+- make
+- gcc-c++
 
 ## Qmake project to generate Makefile
 
