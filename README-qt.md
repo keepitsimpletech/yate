@@ -2,7 +2,7 @@
 
 > See [README-mac.md](README-mac.md) to run YateClient on macOS.
 
-## Linux Dependecies (tested on Ubuntu 18.04.2 LTS)
+## Ubuntu Linux Dependecies (tested on Ubuntu 18.04.2 LTS)
 
 `sudo apt install <dep>`
 - libz-dev
@@ -12,13 +12,25 @@
 - qttools5-dev
 - qtmultimedia5-dev
 
+## Centos Linux Dependencies (tested on Centos8)
+
+  - qt5-qtbase-devel
+  - 
+  - qt5-qtmultimedia-devel
+  - alsa-lib-devel
+  - openssl-devel
+  - zlib-devel
+  - autoconf
+  - make
+  - gcc-c++
+
 ## Qmake project to generate Makefile
 
 ```sh
 ./autogen.sh 
 ./configure  # create yateversn.h
 make yatepaths.h  # create yatepaths.h
-qmake -o Makefile.qmake Yate.pro  # generate Makefile.qmake
+qmake -o Makefile.qmake Yate.pro  # generate Makefile.qmake (in case of Centos8 command os qmake-qt5)
 make -f Makefile.qmake
 ```
 
