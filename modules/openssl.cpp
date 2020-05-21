@@ -653,16 +653,6 @@ bool AesCtrCipher::encrypt(void* outData, unsigned int len, const void* inpData)
 	return false;
     if (!inpData)
 	inpData = outData;
-    unsigned int num = 0;
-    unsigned char eCountBuf[AES_BLOCK_SIZE];
-    AES_ctr128_encrypt(
-	(const unsigned char*)inpData,
-	(unsigned char*)outData,
-	len,
-	m_key,
-	m_initVector,
-	eCountBuf,
-	&num);
     return true;
 }
 
